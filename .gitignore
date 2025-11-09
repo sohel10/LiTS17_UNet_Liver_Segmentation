@@ -1,26 +1,54 @@
-# Ignore large medical image datasets
+# -----------------------------
+# LiTS17 U-Net Segmentation Project
+# Ignore large data, model weights, and system files
+# -----------------------------
+
+# 🧠 NIfTI medical image files
 *.nii
 *.nii.gz
-*.zip
-*.tar
-*.tar.gz
-*.rar
 
-# TensorFlow / Keras model checkpoints and logs
+# 🧩 Model checkpoints and weights
 *.h5
 *.keras
 *.ckpt
-logs/
-checkpoints/
+*.pb
 
-# System and cache files
-__pycache__/
-.DS_Store
+# 📦 Data archives
+*.zip
+*.tar
+*.tar.gz
+
+# 🖼️ Prediction or output images
+outputs/
+predictions/
+*.png
+*.jpg
+*.jpeg
+
+# 🧪 Notebooks checkpoints
 .ipynb_checkpoints/
-.env/
+*.ipynb_checkpoints
+
+# 🧰 Environment and dependency files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+
+# 📂 IDE / OS / Misc
 .vscode/
 .idea/
+.DS_Store
+Thumbs.db
 
-# Temporary or generated outputs
+# 🔒 Hidden and temporary
 *.tmp
-*.log
+*.swp
+*.bak
+
+# ✅ Keep these
+!.gitignore
+!requirements.txt
+!README.md
+
