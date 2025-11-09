@@ -1,7 +1,9 @@
 ## 🧠 Model Architecture
 
 The **U-Net architecture** is designed for **pixel-level segmentation** of medical images.
-
+<p align="center">
+  <img src="Liver.png" alt="Liver Segmentation Pipeline Overview" width="80%">
+</p>
 ### 🧩 Encoder (Contracting Path)
 - Two `3×3` convolutions → ReLU activation → MaxPooling  
 - Captures **semantic and spatial context** from input CT slices  
