@@ -23,9 +23,13 @@ The **U-Net architecture** is designed for **pixel-level segmentation** of medic
 Example overlays of **U-Net predictions** on random CT slices:
 
 <p align="center">
-  <img src="outputs/prediction_grid.png" width="45%" />
-
+  <img src="outputs/prediction_grid.png" alt="U-Net Liver Segmentation Results" width="70%">
 </p>
+
+<p align="center">
+  <em>Figure: U-Net predicted segmentation overlays on CT slices (LiTS17 subset)</em>
+</p>
+
 
 
 
