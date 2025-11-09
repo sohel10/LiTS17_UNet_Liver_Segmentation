@@ -52,3 +52,4 @@ Thumbs.db
 !requirements.txt
 !README.md
 
+outputs/prediction_overlay_*.png
