@@ -1,0 +1,26 @@
+# Ignore large medical image datasets
+*.nii
+*.nii.gz
+*.zip
+*.tar
+*.tar.gz
+*.rar
+
+# TensorFlow / Keras model checkpoints and logs
+*.h5
+*.keras
+*.ckpt
+logs/
+checkpoints/
+
+# System and cache files
+__pycache__/
+.DS_Store
+.ipynb_checkpoints/
+.env/
+.vscode/
+.idea/
+
+# Temporary or generated outputs
+*.tmp
+*.log
