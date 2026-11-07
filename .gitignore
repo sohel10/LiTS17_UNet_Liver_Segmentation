@@ -1,0 +1,7 @@
+data/
+models/
+backup_june28/
+outputs/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/

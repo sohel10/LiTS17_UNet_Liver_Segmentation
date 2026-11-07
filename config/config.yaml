@@ -1,0 +1,24 @@
+﻿project:
+  name: liver-segmentation-agent
+  version: "1.0"
+
+paths:
+  volumes: data/volumes
+  segmentations: data/segmentations
+  zips: data/zips
+  training_data: data/training_data
+  training_data_v2: data/training_data_v2
+  models: models
+  code: code
+  outputs: outputs
+  backup: backup_june28
+
+model:
+  production: models/best_unet_lits17_balanced.keras
+  input_shape: [256, 256, 1]
+  loss: weighted_bce_dice
+  pos_weight: 43.94
+
+inference:
+  batch_size: 8
+  threshold: 0.5
