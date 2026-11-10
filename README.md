@@ -13,6 +13,8 @@ A research prototype that segments the liver and liver tumors in abdominal CT sc
 
 ## Architecture
 
+![System architecture](code/docs/architecture.svg)
+
 ```
 React frontend (port 8000, served by the backend)
         |
@@ -80,7 +82,7 @@ Validation Dice, from 15% of the training data held out during training:
 
 Overlay example (liver in green, tumor in red):
 
-![Model prediction compared with ground truth](docs/compare_slice51.png)
+![Model prediction compared with ground truth](code/docs/compare_slice51.png)
 
 ## Project structure
 
