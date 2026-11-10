@@ -5,3 +5,20 @@ outputs/
 __pycache__/
 *.pyc
 .ipynb_checkpoints/
+
+# --- added for LITS17 portfolio ---
+code/slice_cache/
+code/evaluation_output/
+code/backups_nov8/
+code_backup_*/
+code/frontend/node_modules/
+code/frontend/build/
+*.bak
+*:Zone.Identifier
+*.nii
+*.nii.gz
+*.keras
+*.h5
+*.zip
+ptxas
+=*
