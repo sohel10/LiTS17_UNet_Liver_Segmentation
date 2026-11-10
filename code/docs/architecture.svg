@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="720" viewBox="0 0 1100 720" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#475569"/>
+    </marker>
+  </defs>
+  <rect width="1100" height="720" fill="#f8fafc"/>
+  <text x="550" y="32" text-anchor="middle" font-size="22" font-weight="700" fill="#0f172a">LiTS17 Liver and Tumor Segmentation: System Architecture</text>
+  <text x="550" y="54" text-anchor="middle" font-size="13" fill="#475569">Research prototype. Not for clinical use.</text>
+
+  <!-- Layer 1: frontend -->
+  <rect x="40" y="80" width="300" height="100" rx="10" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+  <text x="190" y="110" text-anchor="middle" font-size="16" font-weight="700" fill="#0c4a6e">React Dashboard</text>
+  <text x="190" y="133" text-anchor="middle" font-size="12" fill="#075985">Login, Dashboard, Analyze,</text>
+  <text x="190" y="151" text-anchor="middle" font-size="12" fill="#075985">Results, Imaging, Metrics</text>
+
+  <!-- Layer 2: API -->
+  <rect x="400" y="80" width="300" height="100" rx="10" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+  <text x="550" y="110" text-anchor="middle" font-size="16" font-weight="700" fill="#4c1d95">FastAPI Backend :8000</text>
+  <text x="550" y="133" text-anchor="middle" font-size="12" fill="#5b21b6">Upload NIfTI, job status,</text>
+  <text x="550" y="151" text-anchor="middle" font-size="12" fill="#5b21b6">slice images, /api/status</text>
+
+  <!-- Input -->
+  <rect x="800" y="80" width="260" height="100" rx="10" fill="#f1f5f9" stroke="#64748b" stroke-width="2"/>
+  <text x="930" y="110" text-anchor="middle" font-size="15" font-weight="700" fill="#1e293b">CT Volume (.nii)</text>
+  <text x="930" y="133" text-anchor="middle" font-size="12" fill="#334155">Uploaded by the user</text>
+  <text x="930" y="151" text-anchor="middle" font-size="12" fill="#334155">Stays on the server</text>
+
+  <line x1="340" y1="130" x2="398" y2="130" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="800" y1="130" x2="702" y2="130" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Layer 3: pipeline -->
+  <rect x="400" y="220" width="300" height="300" rx="12" fill="#fff7ed" stroke="#ea580c" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="550" y="246" text-anchor="middle" font-size="14" font-weight="700" fill="#9a3412">LangGraph Pipeline</text>
+  <text x="550" y="264" text-anchor="middle" font-size="11" fill="#c2410c">agent_orchestrator.py</text>
+
+  <rect x="425" y="285" width="250" height="100" rx="8" fill="#ffffff" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="550" y="312" text-anchor="middle" font-size="14" font-weight="700" fill="#7c2d12">Agent 1: Segmentation</text>
+  <text x="550" y="332" text-anchor="middle" font-size="11" fill="#431407">Runs 3D U-Net, measures liver</text>
+  <text x="550" y="348" text-anchor="middle" font-size="11" fill="#431407">volume, finds tumor regions</text>
+  <text x="550" y="364" text-anchor="middle" font-size="11" fill="#431407">larger than 50 voxels</text>
+
+  <rect x="425" y="410" width="250" height="90" rx="8" fill="#ffffff" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="550" y="436" text-anchor="middle" font-size="14" font-weight="700" fill="#7c2d12">Agent 2: Report</text>
+  <text x="550" y="456" text-anchor="middle" font-size="11" fill="#431407">Builds findings, model performance,</text>
+  <text x="550" y="472" text-anchor="middle" font-size="11" fill="#431407">limitations and recommendation</text>
+  <text x="550" y="488" text-anchor="middle" font-size="11" fill="#431407">from measured numbers (no LLM)</text>
+
+  <line x1="550" y1="385" x2="550" y2="408" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="800" y1="150" x2="800" y2="150" stroke="none"/>
+  <line x1="930" y1="180" x2="675" y2="300" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Model -->
+  <rect x="40" y="285" width="300" height="100" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <text x="190" y="312" text-anchor="middle" font-size="15" font-weight="700" fill="#14532d">3D U-Net v1 (predict_v1.py)</text>
+  <text x="190" y="333" text-anchor="middle" font-size="11" fill="#166534">Input 128 x 128 x 268</text>
+  <text x="190" y="349" text-anchor="middle" font-size="11" fill="#166534">Classes: background, liver, tumor</text>
+  <text x="190" y="365" text-anchor="middle" font-size="11" fill="#166534">Liver Dice 0.768, tumor Dice 0.216</text>
+  <line x1="340" y1="335" x2="423" y2="335" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="423" y1="350" x2="342" y2="350" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- MCP -->
+  <rect x="780" y="410" width="290" height="250" rx="12" fill="#fef9c3" stroke="#ca8a04" stroke-width="2"/>
+  <text x="925" y="436" text-anchor="middle" font-size="14" font-weight="700" fill="#713f12">MCP Tool Server :8001</text>
+  <text x="925" y="454" text-anchor="middle" font-size="11" fill="#854d0e">mcp_tool_server.py</text>
+  <rect x="800" y="470" width="250" height="36" rx="6" fill="#ffffff" stroke="#ca8a04"/>
+  <text x="925" y="493" text-anchor="middle" font-size="12" fill="#422006">get_model_metrics (Report Agent)</text>
+  <rect x="800" y="514" width="250" height="36" rx="6" fill="#ffffff" stroke="#ca8a04"/>
+  <text x="925" y="537" text-anchor="middle" font-size="12" fill="#422006">lookup_volume_metadata</text>
+  <rect x="800" y="558" width="250" height="36" rx="6" fill="#ffffff" stroke="#ca8a04"/>
+  <text x="925" y="581" text-anchor="middle" font-size="12" fill="#422006">retrieve_slice</text>
+  <rect x="800" y="602" width="250" height="36" rx="6" fill="#ffffff" stroke="#ca8a04"/>
+  <text x="925" y="625" text-anchor="middle" font-size="12" fill="#422006">generate_report</text>
+  <text x="925" y="652" text-anchor="middle" font-size="11" fill="#854d0e">get_segmentation_stats (also listed)</text>
+
+  <line x1="675" y1="460" x2="778" y2="460" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Cache and outputs -->
+  <rect x="400" y="560" width="300" height="80" rx="10" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <text x="550" y="586" text-anchor="middle" font-size="13" font-weight="700" fill="#1e293b">Job cache (slice_cache/)</text>
+  <text x="550" y="606" text-anchor="middle" font-size="11" fill="#334155">pipeline_result.json and overlay PNGs</text>
+  <text x="550" y="624" text-anchor="middle" font-size="11" fill="#334155">written once per job</text>
+  <line x1="550" y1="520" x2="550" y2="558" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="780" y1="620" x2="702" y2="600" stroke="#475569" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+
+  <!-- Results -->
+  <rect x="40" y="560" width="300" height="80" rx="10" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+  <text x="190" y="586" text-anchor="middle" font-size="14" font-weight="700" fill="#0c4a6e">Results and Imaging pages</text>
+  <text x="190" y="606" text-anchor="middle" font-size="11" fill="#075985">Metrics, report, MCP call log,</text>
+  <text x="190" y="624" text-anchor="middle" font-size="11" fill="#075985">overlay viewer (liver green, tumor red)</text>
+  <line x1="400" y1="600" x2="342" y2="600" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Legend -->
+  <text x="40" y="690" font-size="12" fill="#475569">Solid arrows: direct calls and data flow.  Dashed arrows: read from cache.  Ports: 8000 (app and API), 8001 (MCP tools).</text>
+</svg>
